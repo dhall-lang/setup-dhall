@@ -1,0 +1,15 @@
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Check dhall version
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Dhall
+        uses: ./
+        with:
+          version: 1.29.0
+      - name: Print version
+        run: dhall version
