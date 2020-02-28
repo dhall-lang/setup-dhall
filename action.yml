@@ -1,0 +1,14 @@
+name: Run Dhall
+description: Install a Dhall version and provide the binary to run commands
+branding:
+  color: blue
+  icon: code
+inputs:
+  version:
+    description: Version of Dhall to use
+    default: latest
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+  - ${{ inputs.version }}
