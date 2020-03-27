@@ -1,4 +1,5 @@
 # setup-dhall
+
 Github action to install a specific version of https://dhall-lang.org and run commands
 
 ## Inputs
@@ -9,7 +10,6 @@ Github action to install a specific version of https://dhall-lang.org and run co
 
 ## Usage
 
-
 ### Basic Example
 
 ```yaml
@@ -17,7 +17,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-dhall@v1
+      - uses: craig-day/setup-dhall@v2
         with:
           version: 1.24.0
       - run: dhall version
