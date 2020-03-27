@@ -1,0 +1,23 @@
+{
+  "name": "setup-dhall",
+  "version": "0.0.0",
+  "description": "Github action to install a specific version of https://dhall-lang.org and run commands",
+  "main": "action.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/craig-day/setup-dhall.git"
+  },
+  "author": "Craig Day",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/craig-day/setup-dhall/issues"
+  },
+  "homepage": "https://github.com/craig-day/setup-dhall#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.3",
+    "@actions/exec": "^1.0.3"
+  }
+}

@@ -12,7 +12,5 @@ inputs:
     default: latest
 
 runs:
-  using: docker
-  image: Dockerfile
-  args:
-  - ${{ inputs.version }}
+  using: node12
+  main: src/action.js
