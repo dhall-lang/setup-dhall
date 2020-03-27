@@ -12,4 +12,6 @@ jobs:
         with:
           version: 1.29.0
       - name: Print version
-        run: dhall version
+        run: |
+          echo "dhall version: $(dhall version)"
+          echo "dhall-json version: $(dhall-to-json --version)"

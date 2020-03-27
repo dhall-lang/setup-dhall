@@ -2,6 +2,6 @@ FROM alpine:3
 
 WORKDIR /
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["src/entrypoint.sh"]
 
-COPY ["entrypoint.sh", "release-filter.jq", "/"]
+ADD src src

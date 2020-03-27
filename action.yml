@@ -1,12 +1,15 @@
 name: Setup Dhall
-description: Install a Dhall version and provide the binary to run commands
+description: Install a Dhall version, including dhall-json, and provide the binary to run commands.
 branding:
   color: blue
   icon: code
+
 inputs:
   version:
-    description: Version of Dhall to use
+    description: 'Version of Dhall to use. Default: `latest`'
+    required: false
     default: latest
+
 runs:
   using: docker
   image: Dockerfile

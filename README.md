@@ -20,5 +20,6 @@ jobs:
       - uses: actions/setup-dhall@v1
         with:
           version: 1.24.0
-      - run: dhall diff
+      - run: dhall version
+      - run: dhall-to-json --version
 ```
