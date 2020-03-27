@@ -1,5 +1,6 @@
 name: Setup Dhall
 description: Install a Dhall version, including dhall-json, and provide the binary to run commands.
+author: Craig Day
 branding:
   color: blue
   icon: code

@@ -14,8 +14,8 @@ fi
 
 curl -s https://api.github.com/repos/dhall-lang/dhall-haskell/releases/$url_path > releases.json
 
-core_download_url=$(jq --from-file src/core-release-filter.jq releases.json | tr -d '"')
-json_download_url=$(jq --from-file src/json-release-filter.jq releases.json | tr -d '"')
+core_download_url=$(jq --from-file /src/core-release-filter.jq releases.json | tr -d '"')
+json_download_url=$(jq --from-file /src/json-release-filter.jq releases.json | tr -d '"')
 
 # Cleanup to make sure the download can't fail
 rm -f releases.json
