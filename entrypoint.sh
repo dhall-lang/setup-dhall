@@ -16,10 +16,13 @@ curl -s https://api.github.com/repos/dhall-lang/dhall-haskell/releases/$url_path
 
 download_url=$(jq --from-file release-filter.jq releases.json | tr -d '"')
 
+# Cleanup to make sure the download can't fail
+rm -rf dhall-*
+
 echo "Downloading Dhall from: $download_url"
 
 wget --quiet $download_url
 
 tar --extract --bzip2 --file dhall-*-x86_64-linux.tar.bz2
 
-echo "::add-path::$pwd/bin"
+echo "::add-path::$(pwd)/bin"

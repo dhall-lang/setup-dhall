@@ -1,4 +1,4 @@
-name: Run Dhall
+name: Setup Dhall
 description: Install a Dhall version and provide the binary to run commands
 branding:
   color: blue
