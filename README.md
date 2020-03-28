@@ -26,7 +26,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: dhall-lang/setup-dhall@v3
+      - uses: dhall-lang/setup-dhall@v4
       - run: dhall version
 ```
 
@@ -37,7 +37,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: dhall-lang/setup-dhall@v3
+      - uses: dhall-lang/setup-dhall@v4
         with:
           version: '1.28.0'
       - run: dhall version
