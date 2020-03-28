@@ -2,9 +2,32 @@ const core = require('@actions/core')
 const { exec } = require('@actions/exec')
 const path = require('path')
 const https = require('https')
+const os = require('os')
 
-const CORE_RELEASE_PATTERN = /dhall-[0-9.]+.*-linux\.tar\.bz2/i
-const JSON_RELEASE_PATTERN = /dhall-json-[0-9.]+.*-linux\.tar\.bz2/i
+const releasePatterns = () => {
+  const platform = os.platform()
+  let platformSuffix
+
+  switch (platform) {
+    case 'linux':
+      platformSuffix = 'linux'
+      break
+    case 'darwin':
+      platformSuffix = 'macos'
+      break
+    case 'win32':
+      platformSuffix = 'windows'
+      break
+    default:
+      core.setFailed(`Unknown or unsuppored platform: ${platform}`)
+      return
+  }
+
+  return {
+    core: new RegExp(`dhall-[0-9.]+.*-${platformSuffix}\.tar\.bz2`, 'i'),
+    json: new RegExp(`dhall-json-[0-9.]+.*-${platformSuffix}\.tar\.bz2`, 'i'),
+  }
+}
 
 const fetchReleases = async () => {
   const version = core.getInput('version')
@@ -14,12 +37,13 @@ const fetchReleases = async () => {
   core.info(`Fetching dhall releases from ${url}`)
 
   const release = JSON.parse(await get(url))
+  const patterns = releasePatterns()
 
   const coreRelease = release.assets.find(asset =>
-    CORE_RELEASE_PATTERN.test(asset.name)
+    patterns.core.test(asset.name)
   )
   const jsonRelease = release.assets.find(asset =>
-    JSON_RELEASE_PATTERN.test(asset.name)
+    patterns.json.test(asset.name)
   )
 
   return {
