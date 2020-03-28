@@ -1,5 +1,7 @@
 # setup-dhall
 
+![.github/workflows/main.yml](https://github.com/dhall-lang/setup-dhall/workflows/.github/workflows/main.yml/badge.svg?event=release)
+
 Github action to install a specific version of https://dhall-lang.org.
 
 This will add the following executables to your `PATH`, making them available for further actions:
