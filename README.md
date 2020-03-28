@@ -9,8 +9,6 @@ This will add the following executables to your `PATH`, making them available fo
 - `dhall-to-yaml`
 - `json-to-dhall`
 
-**Note:** Currently this only supports the `ubuntu-` runtimes for actions. See [TODO](#todo) below.
-
 ### Inputs
 
 #### `version`
@@ -46,6 +44,6 @@ jobs:
 
 ### TODO
 
-- [ ] Add platform validation on action to fail early if a non-ubuntu runner is used
-- [ ] Add support for the macOS runner
+- [x] Add platform validation on action to fail early if an unsupported runner is used
+- [x] Add support for the macOS runner
 - [ ] Add support for the Windows runner

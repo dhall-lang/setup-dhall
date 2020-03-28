@@ -15,9 +15,6 @@ const releasePatterns = () => {
     case 'darwin':
       platformSuffix = 'macos'
       break
-    case 'win32':
-      platformSuffix = 'windows'
-      break
     default:
       core.setFailed(`Unknown or unsuppored platform: ${platform}`)
       return
