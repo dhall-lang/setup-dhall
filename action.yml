@@ -10,6 +10,9 @@ inputs:
     description: 'Version of Dhall to use. Default: `latest`'
     required: false
     default: latest
+  github_token:
+    description: A GitHub Token. This can help with rate limits when fetching releases.
+    required: false
 
 runs:
   using: node12

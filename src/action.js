@@ -61,9 +61,17 @@ const fetchReleases = async () => {
 
 const get = url => {
   return new Promise((resolve, reject) => {
-    const request = https.get(url, {
-      headers: { 'User-Agent': 'setup-dhall Github action' },
-    })
+    const headers = {
+      'User-Agent': 'setup-dhall Github action',
+    }
+
+    const token = core.getInput('github_token')
+
+    if (token) {
+      headers['Authorization'] = `token ${token}`
+    }
+
+    const request = https.get(url, { headers })
 
     request.on('response', res => {
       let data = ''
