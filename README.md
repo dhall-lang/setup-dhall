@@ -1,6 +1,6 @@
 # setup-dhall
 
-![.github/workflows/main.yml](https://github.com/dhall-lang/setup-dhall/workflows/.github/workflows/main.yml/badge.svg?event=release)
+![Example Workflow](https://github.com/dhall-lang/setup-dhall/workflows/Example%20Workflow/badge.svg?event=push)
 
 Github action to install a specific version of https://dhall-lang.org.
 
