@@ -33,7 +33,17 @@ const fetchReleases = async () => {
 
   core.info(`Fetching dhall releases from ${url}`)
 
-  const release = JSON.parse(await get(url))
+  let release
+
+  try {
+    release = JSON.parse(await get(url))
+  } catch (error) {
+    core.setFailed(
+      `Failed to fetch releases from GitHub API, providing a token may help.\nError: ${error}`
+    )
+    return
+  }
+
   const patterns = releasePatterns()
 
   const coreRelease = release.assets.find(asset =>
@@ -52,7 +62,7 @@ const fetchReleases = async () => {
 const get = url => {
   return new Promise((resolve, reject) => {
     const request = https.get(url, {
-      headers: { 'User-Agent': 'setup-dhall Github actoin' },
+      headers: { 'User-Agent': 'setup-dhall Github action' },
     })
 
     request.on('response', res => {
@@ -63,7 +73,11 @@ const get = url => {
       })
 
       res.on('end', () => {
-        resolve(data)
+        if (res.statusCode == 200) {
+          resolve(data)
+        } else {
+          reject(data)
+        }
       })
     })
 

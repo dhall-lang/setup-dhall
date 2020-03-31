@@ -1,4 +1,10 @@
-on: [push]
+on:
+  push:
+    paths:
+      - src/*
+      - action.yml
+      - package.json
+      - package-lock.json
 
 jobs:
   build:
