@@ -11,18 +11,16 @@ This will add the following executables to your `PATH`, making them available fo
 - `dhall-to-yaml`
 - `json-to-dhall`
 
-### Inputs
+## Inputs
 
 | Parameter      | Description                                                           | Required | Default  |
 | -------------- | --------------------------------------------------------------------- | -------- | -------- |
 | `version`      | The version of Dhall to install                                       | N        | `latest` |
 | `github_token` | A GitHub Token. This can help with rate limits when fetching releases | N        | None     |
 
-#### `version`
+## Usage
 
-### Usage
-
-#### Basic Example
+### Basic Example
 
 ```yaml
 jobs:
@@ -33,7 +31,7 @@ jobs:
       - run: dhall version
 ```
 
-#### With a Specific Version
+### With a Specific Version
 
 ```yaml
 jobs:
@@ -47,7 +45,7 @@ jobs:
       - run: dhall-to-json --version
 ```
 
-#### Adding a GitHub token
+### Adding a GitHub token
 
 If the action fails, it could be because GitHub rate limits anonymous requests to the API. In that
 case, the action will log an error message that looks something like this:
@@ -73,7 +71,7 @@ jobs:
       - run: dhall-to-json --version
 ```
 
-### TODO
+## TODO
 
 - [x] Add platform validation on action to fail early if an unsupported runner is used
 - [x] Add support for the macOS runner
