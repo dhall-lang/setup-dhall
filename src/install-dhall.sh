@@ -15,4 +15,4 @@ tar --extract --bzip2 --file dhall-*.tar.bz2
 rm -f dhall-*.tar.bz2
 
 # Add the dhall executables to the path for future actions
-echo "::add-path::$(pwd)/bin"
+echo "$(pwd)/bin" >> $GITHUB_PATH
