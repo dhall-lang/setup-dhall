@@ -23,6 +23,7 @@ const releasePatterns = () => {
   return {
     core: new RegExp(`dhall-[0-9.]+.*-${platformSuffix}\.tar\.bz2`, 'i'),
     json: new RegExp(`dhall-json-[0-9.]+.*-${platformSuffix}\.tar\.bz2`, 'i'),
+    yaml: new RegExp(`dhall-yaml-[0-9.]+.*-${platformSuffix}\.tar\.bz2`, 'i'),
   }
 }
 
@@ -52,10 +53,14 @@ const fetchReleases = async () => {
   const jsonRelease = release.assets.find(asset =>
     patterns.json.test(asset.name)
   )
+  const yamlRelease = release.assets.find(asset =>
+    patterns.yaml.test(asset.name)
+  )
 
   return {
     core: coreRelease.browser_download_url,
     json: jsonRelease.browser_download_url,
+    yaml: yamlRelease.browser_download_url,
   }
 }
 
@@ -98,7 +103,7 @@ const get = url => {
 const run = async () => {
   const urls = await fetchReleases()
 
-  await exec(path.join(__dirname, 'install-dhall.sh'), [urls.core, urls.json])
+  await exec(path.join(__dirname, 'install-dhall.sh'), [urls.core, urls.json, urls.yaml])
 }
 
 try {

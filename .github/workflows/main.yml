@@ -27,3 +27,4 @@ jobs:
         run: |
           echo "dhall version: $(dhall version)"
           echo "dhall-json version: $(dhall-to-json --version)"
+          echo "dhall-yaml version: $(dhall-to-yaml --version)"
