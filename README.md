@@ -10,6 +10,7 @@ This will add the following executables to your `PATH`, making them available fo
 - `dhall-to-json`
 - `dhall-to-yaml`
 - `json-to-dhall`
+- `yaml-to-dhall`
 
 ## Inputs
 
