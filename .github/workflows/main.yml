@@ -13,8 +13,7 @@ jobs:
           - macos-latest
         version:
           - 1.34.0
-          # Updating this from latest to 1.42.0 for now as the "latest tag" (in this case 1.42.1) doesn't have the proper binaries available for download
-          - 1.42.0
+          - latest
     steps:
       - uses: actions/checkout@v4
 
