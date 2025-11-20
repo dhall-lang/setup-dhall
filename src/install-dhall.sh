@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -eu
+
 echo "Downloading dhall from: $1"
 wget --quiet $1
 
